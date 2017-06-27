@@ -15,9 +15,9 @@ public class SerilogAsyncDemo
 
     private static async Task TestLogAsync()
     {
-        Console.WriteLine("TestLogAsync is on thread: " + Thread.CurrentThread.ManagedThreadId);
         using (LogContext.PushProperty("OperationId", 120))
         {
+            Console.WriteLine("TestLogAsync is on thread: " + Thread.CurrentThread.ManagedThreadId);
             Log.Information("TestLogAsync is on thread: " + Thread.CurrentThread.ManagedThreadId);
 
             await TestLog2Async();
